@@ -1,3 +1,4 @@
-void my_funtion() {
-	char* my_string = "Hello";
+void main() {
+	char* video_memory = (char*) 0xb8000;
+	*video_memory = 'X';
 }
