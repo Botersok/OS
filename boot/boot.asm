@@ -17,11 +17,11 @@ KERNEL_OFFSET equ 0x1000
 	
 	jmp $
 
-%include "gdt.asm"
-%include "print_string.asm"
-%include "switch_to_pm.asm"
-%include "disk_load.asm"
-%include "print_string_pm.asm"
+%include "boot/gdt.asm"
+%include "boot/print_string.asm"
+%include "boot/switch_to_pm.asm"
+%include "boot/disk_load.asm"
+%include "boot/print_string_pm.asm"
 
 [bits 16]
 load_kernel: 
