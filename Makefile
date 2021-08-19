@@ -2,7 +2,7 @@ all: os-image
 run: all
 	bochs
 
-os-image: boot_sect.bin kernel.bin
+os-image: boot.bin kernel.bin
 	cat $^ > os-image
 
 kernel.bin: kernel_entry.o kernel.o
