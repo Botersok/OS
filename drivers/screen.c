@@ -26,7 +26,7 @@ void print_char(char character, int col, int row, char attribute_byte) {
 	}
 	
 	//if newline, set offset to end of row
-	if (character == "\n") {
+	if (character == '\n') {
 		//offset is amount of bytes from 0xb8000, 
 		//row is zero if smaller than MAX_COLS, so rows 
 		//smaller than one so also zero
@@ -34,7 +34,7 @@ void print_char(char character, int col, int row, char attribute_byte) {
 		offset = get_screen_offset(79, rows);
 	} else {
 		vidmem[offset] = character;
-		vidmem[offset + 1] = attribute;
+		vidmem[offset + 1] = attribute_byte;
 	}
 	
 	//for moving the cursor
@@ -53,7 +53,7 @@ int get_cursor() {
 	//change the content of the data register to that of 
 	//internal register 14, which is the high byte of the position.
 	port_byte_out(REG_SCREEN_CTRL, 14);
-	offset = port_byte_in(REG_SCREEN_DATA) << 8;
+	int offset = port_byte_in(REG_SCREEN_DATA) << 8;
 	port_byte_out(REG_SCREEN_CTRL, 15);
 	offset += port_byte_in(REG_SCREEN_DATA);
 	
@@ -73,11 +73,11 @@ void set_cursor(int offset) {
 	port_byte_out(REG_SCREEN_DATA, offset);
 }
 
-void handle_scrolling(int cursor_offset) {
+int handle_scrolling(int cursor_offset) {
 	//if cursor is still on screen
-	if (cursor_offset < MAX_COLS * MAX_ROWS * 2) {
-		return cursor_offset;
-	} 
+	if (cursor_offset < MAX_ROWS*MAX_COLS*2) {
+        return cursor_offset;
+    }
 	
 	//TODO: the rest of this function
 }
@@ -89,8 +89,8 @@ void print_at(char* message, int col, int row) {
 	
 	int i = 0; 
 	//This means there is a zero at the end of the string
-	for (i = 0; i < strlen(message); i++) {
-		print_char(message[i], col, row, WHITE_ON_BLACK);
+	while(message[i] != 0) {
+		print_char(message[i++], col, row, WHITE_ON_BLACK);
 	}
 }
 
