@@ -107,11 +107,11 @@ void clear_screen() {
 	int row = 0;
 	int col = 0; 
 	
-	for(row = 0; row < MAX_ROWS; row++) {
-		for(col = 0; col < MAX_COLS; col++) {
-			print_char(' ', col, row, WHITE_ON_BLACK);
-		}
-	}
+	for (row=0; row<MAX_ROWS; row++) {
+        for (col=0; col<MAX_COLS; col++) {
+            print_char(' ', col, row, WHITE_ON_BLACK);
+        }
+    }
 	
 	set_cursor(0);
 }
