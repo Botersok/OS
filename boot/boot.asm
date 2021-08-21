@@ -30,7 +30,7 @@ load_kernel:
 	
 	mov bx, KERNEL_OFFSET
 	mov dh, 15
-	mov dl, 0x80
+	mov dl, 0;0x80
 	
 	call disk_load
 	
