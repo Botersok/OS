@@ -1,9 +1,15 @@
 #include "screen.h"
 
+unsigned char port_byte_in(unsigned short port);
+void port_byte_out(unsigned short port, unsigned char data);
 int get_screen_offset(int col, int row);
 int get_cursor();
 void set_cursor(int offset);
 int handle_scrolling(int cursor_offset);
+void print_at(char* message, int col, int row);
+void print(char* message);
+void clear_screen();
+
 
 void print_char(char character, int col, int row, char attribute_byte) {
 	//Pointer to begin video memory
