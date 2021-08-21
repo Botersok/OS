@@ -1,3 +1,5 @@
+#include "screen.h"
+
 int get_screen_offset(int col, int row);
 int get_cursor();
 void set_cursor(int offset);
