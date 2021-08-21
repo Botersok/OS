@@ -1,6 +1,3 @@
-#include "screen.h"
-#include "../kernel/low_level.c"
-
 int get_screen_offset(int col, int row);
 int get_cursor();
 void set_cursor(int offset);
