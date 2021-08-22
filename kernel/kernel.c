@@ -30,7 +30,7 @@ void main() {
 	
 	i = 0;
 	while(1) {
-		if(*bootschap == 0) {
+		if(*boodschap == 0) {
 			break;
 		}
 		*vidmem = *boodschap;
