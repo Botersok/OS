@@ -18,12 +18,14 @@ void main() {
 	
 	for (row=0; row<25; row++) {
         for (col=0; col<80; col++) {
-			*vidmem = 'A';
+			*vidmem = (unsigned char *) ' ';
 			vidmem += 1;
-			*vidmem = 16;
+			*vidmem = (unsigned char *) 15;
 			vidmem += 1;
         }
     }
 	
-	vidmem[0] = 'f';
+	vidmem = (unsigned char *) 0xb8000;
+	*vidmem = 'F';
+	
 }
