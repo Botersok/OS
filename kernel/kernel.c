@@ -26,5 +26,7 @@ void main() {
     }
 	
 	vidmem[0] = 'f';
+	vidmem[1] = 0x0f;
 	vidmem[80*25*2-1] = 'L';
+	vidmem[80*25*2] = 0x0f;
 }
