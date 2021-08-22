@@ -19,8 +19,9 @@ void main() {
 	for (row=0; row<25; row++) {
         for (col=0; col<80; col++) {
 			offset = (row*80 + col)*2;
-            vidmem[offset] = 'A';
 			vidmem[offset + 1] = 0x0f;
+            vidmem[offset] = 'A';
+			
         }
     }
 	
