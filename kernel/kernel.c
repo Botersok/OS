@@ -18,4 +18,9 @@ void main() {
 	
 	vidmem[0] = 'F';
 	vidmem[80*25*2-1] = 'L';
+	
+	for(i = 24*80; i < 80*25; i++) {
+		vidmem[i*2] = ' ';
+		vidmem[i*2 + 1] = 0x0f;
+	}
 }
