@@ -12,6 +12,10 @@ void main() {
 	unsigned char *vidmem = (unsigned char *) 0xb8000;
 	int i = 0; 
 	for(int i = 0; i < 2000; i++) {
+		if (i == 1999) {
+			vidmem[i * 2] = ' ';
+			vidmem[i * 2 + 1] = 0x0f;
+		}
 		vidmem[i * 2] = ' ';
 		vidmem[i * 2 + 1] = 0x0f;
 	}
