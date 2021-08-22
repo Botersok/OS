@@ -18,9 +18,9 @@ void main() {
 	
 	for (row=0; row<25; row++) {
         for (col=0; col<80; col++) {
-			*vidmem = (unsigned char *) ' ';
+			*vidmem = ' ';
 			vidmem += 1;
-			*vidmem = (unsigned char *) 15;
+			*vidmem = 15;
 			vidmem += 1;
         }
     }
@@ -28,9 +28,10 @@ void main() {
 	vidmem = (unsigned char *) 0xb8000;
 	unsigned char boodschap[] = "Boodschap\0";
 	
-	int i = 0;
+	i = 0;
 	while(boodschap[i] != 0) {
 		*vidmem = boodschap[i];
 		vidmem += 2;
+		i++;
 	}
 }
