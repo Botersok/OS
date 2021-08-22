@@ -18,6 +18,6 @@ void main() {
 		}
 	}
 	
-	vidmem[0] = 'F';
+	vidmem[0] = 'f';
 	vidmem[80*25*2-1] = 'L';
 }
