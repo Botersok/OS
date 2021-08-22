@@ -19,14 +19,14 @@ void main() {
 	for (row=0; row<25; row++) {
         for (col=0; col<80; col++) {
 			offset = (row*80 + col)*2;
-			vidmem[offset + 1] = 0x0f;
+			vidmem[offset + 1] = (char) 0x0f;
             vidmem[offset] = 'A';
 			
         }
     }
 	
 	vidmem[0] = 'f';
-	vidmem[1] = 0x0f;
+	vidmem[1] = (char) 0x0f;
 	vidmem[80*25*2-1] = 'L';
-	vidmem[80*25*2] = 0x0f;
+	vidmem[80*25*2] = (char) 0x0f;
 }
