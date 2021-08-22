@@ -9,10 +9,13 @@ void print(char* message);
 void clear_screen();
 
 void main() {
-	unsigned char *vidmem = (unsigned char *) 0xb8000 + 2*80;
+	unsigned char *vidmem = (unsigned char *) 0xb8000;
 	int i = 0; 
 	for(i = 0; i < 80*25; i++) {
 		vidmem[i*2] = ' ';
 		vidmem[i*2 + 1] = 0x0f;
 	}
+	
+	vidmem[0] = 'F';
+	vidmem[80*25*2-1] = 'L';
 }
