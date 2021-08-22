@@ -11,16 +11,13 @@ void clear_screen();
 void main() {
 	unsigned char *vidmem = (unsigned char *) 0xb8000;
 	int i = 0; 
-	for(i = 0; i < 80*25; i++) {
-		vidmem[i*2] = ' ';
-		vidmem[i*2 + 1] = 0x0f;
+	for(int row=0; row<25; row++) {
+		for(int col=0; col<80; col++) {
+			vidmem[(row*80+col)*2] = ' ';
+			vidmem[(row*80+col)*2 + 1] = 0x0f;
+		}
 	}
 	
 	vidmem[0] = 'F';
 	vidmem[80*25*2-1] = 'L';
-	
-	for(i = 24*80; i < 80*25; i++) {
-		vidmem[i*2] = ' ';
-		vidmem[i*2 + 1] = 0x0f;
-	}
 }
