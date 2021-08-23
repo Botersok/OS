@@ -26,13 +26,12 @@ void main() {
     }
 	
 	vidmem = (unsigned char *) 0xb8000;
-	char boodschap[] = "Boodschap";
+	unsigned char *boodschap = "Boodschap\0";
 	
-	i = 0;
-	while(boodschap[i] != 0) {
-		*vidmem = boodschap[i];
+	while(*boodschap != 0) {
+		*vidmem = *boodschap;
 		vidmem += 2;
-		i++;
+		boodschap += 1;
 	}
 	
 	vidmem = (unsigned char *) 0xb8000;
