@@ -25,10 +25,7 @@ void main() {
         }
     }
 	
-	vidmem = (unsigned char *) 0xb8000;
-	char *boodschap = "Boodschap\0";
-	
-	i = 0;
+	char* boodschap = "Boodschap\0";
 	while(1) {
 		if(*boodschap == 0) {
 			break;
@@ -36,6 +33,8 @@ void main() {
 		*vidmem = *boodschap;
 		vidmem += 2;
 		boodschap += 1;
-		i++;
 	}
+	
+	vidmem = (unsigned char *) 0xb8000;
+	*vidmem = 'F';
 }
