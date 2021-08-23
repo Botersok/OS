@@ -26,15 +26,22 @@ void main() {
     }
 	
 	vidmem = (unsigned char *) 0xb8000;
-	unsigned char *boodschap = "Boodschap\0";
+	char *boodschap = "Boodschap\0";
+	char character = 'F';
 	
 	while(*boodschap != 0) {
-		*vidmem = *boodschap;
+		character = *boodschap;
+		*vidmem = character;
 		vidmem += 2;
 		boodschap += 1;
 	}
 	
-	char character = 'F';
+	char *test_string = "Test";
+	character = *test_string;
 	vidmem = (unsigned char *) 0xb8000;
+	*vidmem = character;
+	test_string += 1;
+	vidmem += 2;
+	character = *test_string;
 	*vidmem = character;
 }
