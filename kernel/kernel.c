@@ -34,6 +34,7 @@ void main() {
 		boodschap += 1;
 	}
 	
+	char character = 'F';
 	vidmem = (unsigned char *) 0xb8000;
-	*vidmem = 'F';
+	*vidmem = character;
 }
