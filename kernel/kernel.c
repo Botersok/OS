@@ -25,8 +25,8 @@ void main() {
         }
     }
 	
-	volatile char *vidmem2 = (volatile char *) 0xb8000;
-	const char *boodschap = "Boodschap";
+	unsigned char *vidmem2 = (unsigned char *) 0xb8000;
+	char *boodschap = "Boodschap";
 	
 	while(*boodschap != 0) {
 		*vidmem2 = *boodschap;
