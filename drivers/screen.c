@@ -56,7 +56,7 @@ int get_cursor() {
 }
 
 int get_screen_offset(int row, int col) {
-	return (row*MAX_COLS + col) * 2;
+	return (row * MAX_COLS + col) * 2;
 }
 
 void set_cursor(int cursor_offset) {

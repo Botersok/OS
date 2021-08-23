@@ -11,5 +11,4 @@ void clear_screen();
 void main() {
 	char *boodschap = "Boodschap";
 	clear_screen();
-	print(boodschap);
 }
