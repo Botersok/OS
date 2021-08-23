@@ -25,14 +25,12 @@ void main() {
         }
     }
 	
-	vidmem = (unsigned char *) 0xb8000;
-	char boodschap[10] = "Boodschap";
-	char character = 'F';
+	volatile char *vidmem2 = (volatile char *) 0xb8000;
+	const char *boodschap = "Boodschap";
 	
-	i = 0;
-	while(boodschap[i] != 0) {
-		*vidmem = boodschap[i];
-		vidmem += 2;
-		i++;
+	while(*boodschap != 0) {
+		*vidmem2 = *boodschap;
+		vidmem2 += 2;
+		boodschap += 1;
 	}
 }
