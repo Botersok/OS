@@ -25,6 +25,7 @@ void main() {
         }
     }
 	
+	vidmem = 0xb8000;
 	char* boodschap = "Boodschap\0";
 	while(1) {
 		if(*boodschap == 0) {
@@ -35,6 +36,6 @@ void main() {
 		boodschap += 1;
 	}
 	
-	vidmem = (unsigned char *) 0xb8000;
+	vidmem = 0xb8000;
 	*vidmem = 'F';
 }
