@@ -9,28 +9,7 @@ void print(char* message);
 void clear_screen();
 
 void main() {
-	unsigned char *vidmem = (unsigned char *) 0xb8000;
-	int i = 0; 
-	int offset = 0;
-	int col = 0; 
-	int row = 0;
-	
-	
-	for (row=0; row<25; row++) {
-        for (col=0; col<80; col++) {
-			*vidmem = ' ';
-			vidmem += 1;
-			*vidmem = 15;
-			vidmem += 1;
-        }
-    }
-	
-	unsigned char *vidmem2 = (unsigned char *) 0xb8000;
 	char *boodschap = "Boodschap";
-	
-	while(*boodschap != 0) {
-		*vidmem2 = *boodschap;
-		vidmem2 += 2;
-		boodschap += 1;
-	}
+	clear_screen;
+	print(boodschap);
 }
