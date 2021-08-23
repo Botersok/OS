@@ -61,10 +61,10 @@ int get_screen_offset(int row, int col) {
 
 void set_cursor(int cursor_offset) {
 	port_byte_out(REG_SCREEN_CTRL, 14);
-	port_byte_out(REG_SCREEN_DATA, (unsigned char)(offset >> 8));
+	port_byte_out(REG_SCREEN_DATA, (unsigned char)(cursor_offset >> 8));
 	port_byte_out(REG_SCREEN_CTRL, 15);
 	//don't get this line
-	port_byte_out(REG_SCREEN_DATA, offset)
+	port_byte_out(REG_SCREEN_DATA, cursor_offset);
 }
 
 void print_at(char* message, int row, int col) {
@@ -87,10 +87,7 @@ void clear_screen() {
 	
 	for (row=0; row<MAX_ROWS; row++) {
         for (col=0; col<MAX_COLS; col++) {
-			*vidmem = ' ';
-			vidmem += 1;
-			*vidmem = WHITE_ON_BLACK;
-			vidmem += 1;
+			print_char(' ', row, col, WHITE_ON_BLACK);
         }
     }
 	
