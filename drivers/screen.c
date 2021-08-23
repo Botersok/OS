@@ -60,6 +60,8 @@ int get_screen_offset(int row, int col) {
 }
 
 void set_cursor(int cursor_offset) {
+	cursor_offset /= 2;
+	
 	port_byte_out(REG_SCREEN_CTRL, 14);
 	port_byte_out(REG_SCREEN_DATA, (unsigned char)(cursor_offset >> 8));
 	port_byte_out(REG_SCREEN_CTRL, 15);
