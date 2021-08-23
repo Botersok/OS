@@ -64,7 +64,7 @@ void set_cursor(int cursor_offset) {
 	port_byte_out(REG_SCREEN_DATA, (unsigned char)(cursor_offset >> 8));
 	port_byte_out(REG_SCREEN_CTRL, 15);
 	//don't get this line
-	port_byte_out(REG_SCREEN_DATA, cursor_offset);
+	port_byte_out(REG_SCREEN_DATA, (unsigned char)(cursor_offset & 0xff));
 }
 
 void print_at(char* message, int row, int col) {
