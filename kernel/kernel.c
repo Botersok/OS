@@ -1,6 +1,7 @@
 #include "../drivers/screen.h"
 #include "low_level.h"
 #include "util.h"
+#include <math.h>
 
 void main() {
 	clear_screen();
