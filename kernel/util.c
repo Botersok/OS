@@ -8,9 +8,10 @@ void memory_copy(char *source, char *dest, int nbytes) {
 }
 
 void int_to_ascii(int n, char string[]) {
-	int i, sign, digits, n2, highestPower10;
+	int i = 0;
+	int digits, n2, highestPower10;
 	string[0] = 'K';
-	/*if (n < 0) {
+	if (n < 0) {
 		n = -n;
 		string[i++] = '-';
 	}
