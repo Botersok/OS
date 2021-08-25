@@ -26,6 +26,6 @@ void int_to_ascii(int n, char string[]) {
 		}
 		highestPower10 = digits - 1;
 		string[i++] = (n / powerOf(10, highestPower10)) + '0';
-	} while ((n/=10) > 0);*/
+	} while ((n/=10) > 0);
 	string[1] = '\0';
 }
