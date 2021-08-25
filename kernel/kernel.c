@@ -7,6 +7,7 @@ void main() {
 	char *boodschap = "Boodschap";
 	char int_string[255];
 	int_to_ascii(445, int_string);
-	print_at(int_string, 24, 79);
+	print_char('B', 24, 78);
+	print_at(int_string, -1, -1);
 	print(boodschap);
 }
