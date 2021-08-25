@@ -7,26 +7,23 @@ void memory_copy(char *source, char *dest, int nbytes) {
 	}
 }
 
-void int_to_ascii(int n, char string[]) {
-	int i = 0;
-	int digits, n2, power;
-	string[0] = 'K';
-	if (n < 0) {
-		n = -n;
+void int_to_ascii(int number, char string[]) {
+	int  i = 0;
+	int n2, digits, power;
+	if (number < 0) {
+		number = -number;
 		string[i++] = '-';
-	}
-	
-	do {
+    } 
+	while(number > 0) {
+		n2 = number;
 		digits = 0;
-		n2 = n;
-		
 		while(n2 > 0) {
 			n2 /= 10;
 			digits++;
 		}
 		power = digits - 1;
-		string[i++] = (n / powerOf(10, power)) + '0';
-		
-	} while ((n%powerOf(10, power)) > 0);
+		string[i++] = number/powerOf(10, power) + '0';
+		number %= powerOf(10, power);
+	}
 	string[i] = '\0';
 }
