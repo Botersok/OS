@@ -8,6 +8,7 @@ void memory_copy(char *source, char *dest, int nbytes) {
 }
 
 void int_to_ascii(int n, char string[]) {
+	int i, sign, digits, n2, highestPower10;
 	string[0] = 'K';
 	/*if (n < 0) {
 		n = -n;
@@ -25,5 +26,5 @@ void int_to_ascii(int n, char string[]) {
 		highestPower10 = digits - 1;
 		string[i++] = (n / powerOf(10, highestPower10)) + '0';
 	} while ((n/=10) > 0);*/
-	string[i] = '\0';
+	string[1] = '\0';
 }
