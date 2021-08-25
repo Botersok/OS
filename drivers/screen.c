@@ -36,12 +36,12 @@ void print_char(char character, int row, int col, char attribute) {
 	if(offset >= MAX_COLS*MAX_ROWS*2) {
 		int i;
 		for(i = 1; i<MAX_ROWS; i++) {
-			memory_copy(get_screen_offset(i, 0) + VIDEO_ADDRESS, 
-						get_screen_offset(i - 1, 0) + VIDEO_ADDRESS, 
+			memory_copy((char *)(get_screen_offset(i, 0) + VIDEO_ADDRESS), 
+						(char *)(get_screen_offset(i - 1, 0) + VIDEO_ADDRESS), 
 						MAX_COLS*2);
 		}
 		//blank last line
-		char *lastline = get_screen_offset(MAX_ROWS - 1, 0) + VIDEO_ADDRESS;
+		char *lastline = (char *)(get_screen_offset(MAX_ROWS - 1, 0) + VIDEO_ADDRESS);
 		for(i = 0; i < MAX_COLS*2; i++) {
 			*(lastline + i) = 0;
 		}
