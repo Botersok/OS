@@ -45,7 +45,7 @@ void print_char(char character, int row, int col, char attribute) {
 		for(i = 0; i < MAX_COLS*2; i++) {
 			*(lastline + i) = 0;
 		}
-		offset = get_screen_offset(24, 0);
+		offset = get_screen_offset(MAX_ROWS - 1, 0);
 	}
 	
 	set_cursor(offset);
