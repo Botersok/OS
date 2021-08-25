@@ -5,6 +5,6 @@
 void main() {
 	clear_screen();
 	char *boodschap = "Boodschap";
-	print_char('E', 23, 79, 0x0f);
+	print_char('E', 24, 79, 0x0f);
 	print(boodschap);
 }
