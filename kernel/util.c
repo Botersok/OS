@@ -15,13 +15,12 @@ void int_to_ascii(int n, char string[]) {
 	}
 	
 	do {
-		//getting left most number
 		digits = 0;
 		n2 = n;
 		
 		while(n2 > 0) {
 			n2 /= 10;
-			digits += 1;
+			digits++;
 		}
 		highestPower10 = digits - 1;
 		string[i++] = (n / powerOf(10, highestPower10)) + '0';
