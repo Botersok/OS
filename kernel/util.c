@@ -1,4 +1,4 @@
-#include <math.h>
+#include "math.h"
 
 void memory_copy(char *source, char *dest, int nbytes) {
 	int i = 0;
@@ -9,11 +9,8 @@ void memory_copy(char *source, char *dest, int nbytes) {
 
 void int_to_ascii(int n, char string[]) {
 	int i, sign, digits, n2, highestPower10;
-	if ((sign=n) < 0) {
+	if (n < 0) {
 		n = -n;
-	}
-	
-	if (sign < 0) {
 		string[i++] = '-';
 	}
 	
@@ -27,7 +24,7 @@ void int_to_ascii(int n, char string[]) {
 			digits += 1;
 		}
 		highestPower10 = digits - 1;
-		string[i++] = (n / pow(10, highestPower10)) + '0';
+		string[i++] = (n / powerOf(10, highestPower10)) + '0';
 	} while ((n/=10) > 0);
 	
 	string[i] = '\0';
