@@ -1,14 +1,6 @@
 #include "screen.h"
-
-unsigned char port_byte_in(unsigned short port);
-void port_byte_out(unsigned short port, unsigned char data);
-void print_char(char character, int row, int col, char attribute);
-int get_cursor();
-int get_screen_offset(int row, int col);
-void set_cursor(int cursor_offset);
-void print_at(char* message, int row, int col);
-void print(char* message);
-void clear_screen();
+#include "../kernel/low_level.h"
+#include "../kernel/util.h"
 
 void print_char(char character, int row, int col, char attribute) {
 	unsigned char *video_memory = (unsigned char *) VIDEO_ADDRESS;
@@ -40,7 +32,22 @@ void print_char(char character, int row, int col, char attribute) {
 	//moving cursor to next character
 	offset += 2;
 	
-	//TODO: handle scrolling
+	//handle scrolling
+	if(offset >= MAX_COLS*MAX_ROWS*2) {
+		int i;
+		for(i = 1; i<MAX_ROWS; i++) {
+			memory_copy(get_screen_offset(i, 0) + VIDEO_ADDRESS, 
+						get_screen_offset(i - 1, 0) + VIDEO_ADDRESS, 
+						MAX_COLS*2);
+		}
+		//blank last line
+		char *lastline = get_screen_offset(MAX_ROWS - 1, 0) + VIDEO_ADDRESS;
+		for(i = 0; i < MAX_COLS*2; i++) {
+			*(lastline + i) = 0;
+		}
+		offset -= 2*MAX_COLS;
+	}
+	
 	set_cursor(offset);
 }
 
