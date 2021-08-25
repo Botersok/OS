@@ -3,8 +3,8 @@
 #include "util.h"
 
 void main() {
-	print_char('E', 23, 79, 0x0f);
-	char *boodschap = "Boodschap";
 	clear_screen();
+	char *boodschap = "Boodschap";
+	print_char('E', 23, 79, 0x0f);
 	print(boodschap);
 }
