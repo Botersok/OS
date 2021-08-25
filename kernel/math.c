@@ -4,12 +4,13 @@ int powerOf(int base, int exponent) {
 		for(int i = 0; i < exponent; i++) {
 			result *= base;
 		}
-		return outcome;
+		return result;
 	} else if(exponent == 0) {
 		return 1;
 	} else {
 		for(int i = 0; i < -exponent; i++) {
 			result *= (1/base);
 		}
+		return result;
 	}
 }
