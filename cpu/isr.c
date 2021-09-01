@@ -46,7 +46,7 @@ void isr_install() {
 
 
 //list or error_messages
-char *exception_messages[] = {
+char *exception_messages[32] = {
     "Division By Zero",
     "Debug",
     "Non Maskable Interrupt",
