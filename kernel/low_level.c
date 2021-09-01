@@ -1,5 +1,3 @@
-#include "../cpu/types.h"
-
 unsigned char port_byte_in(u16 port) {
 	unsigned char result; 
 	//"=a" (result) means put al register in result
