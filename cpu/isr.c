@@ -91,7 +91,7 @@ void isr_handler(registers_t r) {
 	print(s);
 	print("\n");
 	char s2[10];
-	int_to_ascii(exception_messages, s2);
+	int_to_ascii((u32) exception_messages, s2);
 	print(s2);
 	print("\n");
 }
