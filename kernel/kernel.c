@@ -13,6 +13,12 @@ void main() {
 	print(int_string);
 	print(boodschap);
 	isr_install();
+	char *strings = {
+		"bood", 
+		"schap"
+	};
+	print(strings[0]);
+	print(strings[1]);
 	__asm__ __volatile__("int $2");
 	__asm__ __volatile__("int $3");
 }
