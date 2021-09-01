@@ -90,6 +90,12 @@ void isr_handler(registers_t r) {
 	int_to_ascii(r.int_no, s);
 	print(s);
 	print("\n");
-	print(exception_messages[r.int_no]);
+	char s2[10];
+	int_to_ascii(exception_messages[0], s2);
+	print(s2);
+	int_to_ascii(exception_messages[1], s2);
+	print(s2);
+	int_to_ascii(exception_messages[2], s2);
+	print(s2);
 	print("\n");
 }
