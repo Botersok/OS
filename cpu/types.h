@@ -1,5 +1,5 @@
-#ifndef TYPES.H
-#define TYPES.H
+#ifndef TYPES_H
+#define TYPES_H
 
 typedef unsigned int 	u32;
 typedef 		 int  	s32;
