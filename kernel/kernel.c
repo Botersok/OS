@@ -12,6 +12,7 @@ void main() {
 	print_char('B', 24, 78, 0x0f);
 	print(int_string);
 	print(boodschap);
+	isr_install();
 	__asm__ __volatile__("int $2");
 	__asm__ __volatile__("int $3");
 }
