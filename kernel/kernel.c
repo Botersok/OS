@@ -13,7 +13,7 @@ void main() {
 	print(int_string);
 	print(boodschap);
 	isr_install();
-	char *strings = {
+	char *strings[2] = {
 		"bood", 
 		"schap"
 	};
