@@ -44,7 +44,7 @@ typedef struct {
 	u32 edi, esi, ebp, esp, ebx, edx, ecx, eax; //pushed by pusha
 	u32 int_no, err_code; //interrupt number and error code
 	u32 eip, cs, eflags, useresp, ss; //pushed by the processor automatically
-} registers_t
+} registers_t;
 
 void isr_install();
 void isr_handler(registers_t r);
