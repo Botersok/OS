@@ -80,9 +80,9 @@ void print_at(char* message, int row, int col) {
 	if(row >= 0 && col >= 0) {
 		set_cursor(get_screen_offset(row, col));
 	}
-	while(*message != 0) {
-		print_char(*message, row, col, WHITE_ON_BLACK);
-		message += 1;
+	int i = 0;
+	while(message[i] != 0) {
+		print_char(message[i++], row, col, WHITE_ON_BLACK);
 	}
 }
 
