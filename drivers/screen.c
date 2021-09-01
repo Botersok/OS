@@ -1,6 +1,7 @@
 #include "screen.h"
 #include "../kernel/low_level.h"
 #include "../kernel/util.h"
+#include "../cpu/types.h"
 
 void print_char(char character, int row, int col, char attribute) {
 	unsigned char *video_memory = (unsigned char *) VIDEO_ADDRESS;
