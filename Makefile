@@ -4,18 +4,21 @@ HEADERS = $(wildcard kernel/*.h drivers/*.h cpu/*.h)
 #list of object files
 OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o} 
 
-all: os-image
-run: all
-	bochs
+CC = /usr/local/i386elfgcc/bin/i386-elf-gcc
+LC = /usr/local/i386elfgcc/bin/i386-elf-ld
 
-os-image: boot/boot.bin kernel.bin
-	cat $^ > os-image
+all: os-image.bin
+run: os-image.bin
+	qemu-system-i386 -drive format=raw,file=$^,if=floppy
+
+os-image.bin: boot/boot.bin kernel.bin
+	cat $^ > os-image.bin
 
 kernel.bin: kernel/kernel_entry.o ${OBJ}
-	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ --oformat binary
+	${LC} -o $@ -Ttext 0x1000 $^ --oformat binary
 
 %.o: %.c ${HEADERS}
-	gcc -m32 -fno-pie -ffreestanding -c $< -o $@
+	${CC} -std=c99 -ffreestanding -c $< -o $@
 
 %.o: %.asm
 	nasm $< -f elf -o $@
